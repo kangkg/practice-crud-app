@@ -1,10 +1,12 @@
 class CreateRounds < ActiveRecord::Migration
   def change
-    create_table :users do |t|
-      t.integer :winner, {null: false}
-      t.integer :loser, {null: false}
+    create_table :rounds do |t|
+      t.integer :winner_id, {null: false}
+      t.integer :loser_id, {null: false}
 
-      t.timestamps
+      t.timestamps(null: false)
     end
   end
 end
+
+

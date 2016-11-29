@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :username, {null: false}
       t.string :password_hash, {null: false} # this name is important to my bcrypt methods
 
-      t.timestamps
+      t.timestamps(null: false)
     end
   end
 end
