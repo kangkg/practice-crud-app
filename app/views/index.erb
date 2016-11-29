@@ -27,6 +27,8 @@
 
 <!-- Logout:  -->
 <% if session[:user_id] %>
+  <span>Hello, <%= current_user.full_name %>!</span>
+  <br><br>x`
   <div id="logout-form-div">
     <form method="post" id="logout-form" action="/session">
       <input type="hidden" name="_method" value="delete">
@@ -36,18 +38,6 @@
 <% end %>
 
 <!-- Register:  -->
-
-  <% if @errors %>
-
-    <span>Register Form:</span>
-
-    <span>Something went wrong:</span>
-    <ul class="error-list">
-      <% @errors.each do |error| %>
-        <li class="error-item"><%= error %></li>
-      <% end %>
-    </ul>
-  <% end %>
 <div id="register-form-div">
 
   <form method="post" id='register-form' action="/users">

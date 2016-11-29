@@ -13,6 +13,6 @@ post '/users' do
     redirect '/'
   else
     @errors = @user.errors.full_messages
-    erb :"/users/new"
+    erb :"index"
   end
 end
