@@ -12,8 +12,8 @@ $(document).ready(function() {
   // register form dropdown
   $('body').find("a[href='/users/new']").on('click', function(event){
     event.preventDefault();
-    $("#login-form-div").slideUp();
     $("#register-form-div").slideDown();
+    $("#login-form-div").slideUp();
   });
 
   // login submit
