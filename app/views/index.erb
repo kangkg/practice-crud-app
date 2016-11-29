@@ -1,0 +1,65 @@
+<h1>Welcome...</h1>
+
+
+
+<!-- Errors -->
+<% if @errors %>
+  <span>Something went wrong:</span>
+  <ul class="error-list">
+    <% @errors.each do |error| %>
+      <li class="error-item"><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<!-- Login:  -->
+<% if !session[:user_id] %>
+  <div id="login-form-div">
+    <p> Please <a href="/sessions/new">login</a> or <a href="/users/new">register.</a></p>
+
+    <span>Login Form:</span>
+    <form method="post" id='login-form' action="/session">
+      <input type='text' placeholder="Username" name='info[username]'>
+      <input type='password' placeholder="Password" name='info[password]'>
+      <input type="submit" value="Login!" class="button" >
+    </form>
+</div>
+<% end %>
+
+
+<!-- Logout:  -->
+<% if session[:user_id] %>
+  <div id="logout-form-div">
+    <form method="post" id="logout-form" action="/session">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Logout!">
+    </form>
+  </div>
+<% end %>
+
+<!-- Register:  -->
+<% if @errors %>
+  <div id="register-form-div">
+    <span>Register Form:</span>
+
+    <span>Something went wrong:</span>
+    <ul class="error-list">
+      <% @errors.each do |error| %>
+        <li class="error-item"><%= error %></li>
+      <% end %>
+    </ul>
+
+    <form method="post" id='register-form' action="/users">
+      <label for="name-input">Your Full Name:</label>
+      <input id="name-input" name="info[full_name]" type="text">
+
+      <label for="username-input">Your username:</label>
+      <input id="username-input" name="info[username]" type="text">
+
+      <label for="password-input">Your password:</label>
+      <input id="password-input" name="info[password]" type="password" >
+
+      <input type="submit" value="Register!">
+    </form>
+  </div>
+<% end %>

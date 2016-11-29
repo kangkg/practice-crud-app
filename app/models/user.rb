@@ -21,8 +21,8 @@ class User < ActiveRecord::Base
     @user.save!
   end
 
-  def self.authenticate(email, password)
-    user = User.find_by(email: email)
+  def self.authenticate(username, password)
+    user = User.find_by(username: username)
     if user.try("password") == password
       user # returns user object
     else
